@@ -18,7 +18,7 @@ Hardwear used in the project:
   Nikola Simeonov.
   
 #Purpose of the github repository is to stand as:
-  gide how to create your own prototype of the project;
+  gide on how to create your own prototype of the project;
   to hold all files and instructions needed for the prototype;
   to provide the Open-Source of the project.
   
