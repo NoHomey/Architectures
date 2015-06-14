@@ -12,14 +12,15 @@ game_of_life g(8, 2);
 void setup() {
   Serial.begin(9600);
   tlc.begin();
-  b.begin(tlc);
+  b.begin(tlc); 
   r.begin(tlc);
-  g.begin(tlc); 
+  g.begin(tlc);
 }
 void loop() {
   b.progress(tlc);
   r.progress(tlc);
   g.progress(tlc);
+  tlc.write();
 }
 
 
