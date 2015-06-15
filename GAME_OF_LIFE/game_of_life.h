@@ -6,10 +6,10 @@ class game_of_life {
  public:
   game_of_life(const uint8_t& d, const uint8_t& col);
   ~game_of_life(void);
-  void begin(Adafruit_TLC5947& tlc);
   void progress(Adafruit_TLC5947& tlc);
   void write(Adafruit_TLC5947& tlc);
   void reset(Adafruit_TLC5947& tlc);
+  void begin(Adafruit_TLC5947& tlc);
   uint16_t convert(const uint8_t& x, const uint8_t& y);
  private:
   uint8_t _d;
