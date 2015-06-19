@@ -9,6 +9,8 @@ class animation {
   void write(Adafruit_TLC5947& tlc);
   void run(Adafruit_TLC5947& tlc, const uint8_t& frame);
   void run_square(Adafruit_TLC5947& tlc, const uint8_t& frame);
+  void run_d1(Adafruit_TLC5947& tlc, const uint8_t& frame);
+  void run_d2(Adafruit_TLC5947& tlc, const uint8_t& frame);
   void run_full_square(Adafruit_TLC5947& tlc, const uint8_t& frame);
   void run_void(Adafruit_TLC5947& tlc);
   void reset();

@@ -9,9 +9,10 @@ class animation {
   void write(Adafruit_TLC5947& tlc);
   void run(Adafruit_TLC5947& tlc, const uint8_t& frame);
   void run_square(Adafruit_TLC5947& tlc, const uint8_t& frame);
+  void run_d1(Adafruit_TLC5947& tlc, const uint8_t& frame);
+  void run_d2(Adafruit_TLC5947& tlc, const uint8_t& frame);
   void run_full_square(Adafruit_TLC5947& tlc, const uint8_t& frame);
   void run_void(Adafruit_TLC5947& tlc);
-  void run_game_of_life(Adafruit_TLC5947& tlc, const uint8_t& frame, uint8_t flag);
   void reset();
   uint16_t convert(const uint8_t& x, const uint8_t& y);
   uint16_t _blue;

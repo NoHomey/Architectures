@@ -63,46 +63,29 @@ void animation::run_full_square(Adafruit_TLC5947& tlc, const uint8_t& frame) {
   write(tlc);
 }
 
-void animation::run_game_of_life(Adafruit_TLC5947& tlc, const uint8_t& frame, uint8_t flag) {
-  if(!frame) {
-    reset();
-    _arr[0][7] = 1;
-    _arr[0][6] = 1;
-    _arr[1][7] = 1;
-    _arr[2][4] = 1;
-    _arr[3][4] = 1;
-    _arr[3][5] = 1;
-    _arr[0][1] = 1;
-    _arr[1][1] = 1;
-    _arr[2][1] = 1;
-    _arr[6][6] = 1;
-    _arr[7][6] = 1;
-    _arr[7][7] = 1;
-    _arr[5][0] = 1;
-    _arr[4][1] = 1;
-    _arr[4][2] = 1;
-    _arr[7][1] = 1;
-    _arr[7][2] = 1;
-    _arr[6][3] = 1;
-  } else {
-    uint8_t neibrs = 0;
-    flag = 0;
-    for (int8_t i=0;i < _d;++i) for (int8_t j=0;j < _d;++j) {
-        neibrs = 0;
-        for (int8_t k = i - 1; k < i + 2;++k) for (int8_t l= j - 1;l < j + 2;++l)
-          if((((k > -1) && (k < _d)) && ((l > -1) && (l < _d))) && _arr[k][l])
-            neibrs++;
-        if(neibrs == 3) {
-           _arr[i][j] = 1;
-           flag = 1;
-        }
-        if((neibrs < 2) || (neibrs > 3)) {
-          _arr[i][j] = 0;
-          flag = 1;
-        }
-    }
+void animation::run_d1(Adafruit_TLC5947& tlc, const uint8_t& frame) {
+  int8_t x = frame;
+  int8_t y = 0;
+  while(x > -1) {
+    if((y < _d) && (x < _d))
+      _arr[x][y] = 1;
+    x -= 1;
+    y += 1;
+  } 
+  write(tlc);
+}
+
+void animation::run_d2(Adafruit_TLC5947& tlc, const uint8_t& frame) {
+  int8_t x = frame;
+  int8_t y = _d - 1;
+  while(y > -1) {
+    if((y > -1) && (x > -1))
+      _arr[x][y] = 1;
+    x -= 1;
+    y -= 1;
   }
   write(tlc);
 }
+
 
 

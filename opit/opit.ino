@@ -17,11 +17,11 @@ void setup() {
 
 void loop() {
   square();
-  a.run_void(tlc);
   full_square();
-  a.run_void(tlc);
- // game_of_life();
-  //a.run_void(tlc);
+  full_d1_up();
+  d1_up();
+  full_d2_up();
+  d2_up();
 }  
 
 void square() {
@@ -44,14 +44,54 @@ void full_square() {
    a.run_full_square(tlc, i);
 }
 
-void game_of_life () {
+void full_d1_up() {
+ a._blue = 5000;
+ a._red = 0;
+ a._green = 0;
+ a.reset();
+ for(int i = 0;i < 15;++i)
+   a.run_d1(tlc, i);
+ a.reset(); 
+ for(int i = 14;i > -1;--i)
+   a.run_d1(tlc, i);
+}
 
-  uint8_t flag = 1;
-  for(int i = 0;flag && i < 10;++i) {
-     a._blue = random(4096);
-     a._red = random(4096);
-     a._green = random(4096);
-     a.run_game_of_life(tlc, i, flag);
-   }
-  
+void d1_up() {
+ a._blue = 0;
+ a._red = 0;
+ a._green = 5000;
+ for(int i = 0;i < 15;++i) {
+   a.reset();
+   a.run_d1(tlc, i);
+ }
+ for(int i = 14;i > -1;--i) {
+   a.reset();
+   a.run_d1(tlc, i);
+ }
+}
+
+void full_d2_up() {
+ a._blue = 5000;
+ a._red = 5000;
+ a._green = 0;
+ a.reset();
+ for(int i = 0;i < 15;++i)
+   a.run_d2(tlc, i);
+ a.reset(); 
+ for(int i = 14;i > -1;--i)
+   a.run_d2(tlc, i);
+}
+
+void d2_up() {
+ a._blue = 0;
+ a._red = 5000;
+ a._green = 0;
+ for(int i = 0;i < 15;++i) {
+   a.reset();
+   a.run_d2(tlc, i);
+ }
+ for(int i = 14;i > -1;--i) {
+   a.reset();
+   a.run_d2(tlc, i);
+ }
 }
