@@ -5,8 +5,8 @@ sound_color::sound_color(const uint8_t& f1, const uint8_t& f2, const uint8_t& f3
 
 void sound_color::set() {
   _blue = 4096;
-  _red = 4096;
-  _green = 4096;
+  _red = 0;
+  _green = 0;
 }
 
 void sound_color::begin() {

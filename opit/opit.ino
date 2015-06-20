@@ -1,31 +1,25 @@
 #include <sound_color.h>
 #include <animation.h>
 #include "Adafruit_TLC5947.h"
-#define NUM_TLC5974 8
-#define data 8
-#define clock 9	
-#define latch 10
-#define blank 11 
-Adafruit_TLC5947 tlc = Adafruit_TLC5947(NUM_TLC5974, clock, data, latch, blank);
+Adafruit_TLC5947 tlc = Adafruit_TLC5947(8);
 sound_color c(5, 6, 7, 4);
 animation a(8);
  
 void setup() {
   Serial.begin(9600);
-  tlc.begin();
 }
 
 void loop() {
   full_square();
   square();
-  full_d1_up();
-  full_d2_up();
   d2_up();
   d1_up();
-  full_corners();
-  reverse_full_corners();
   corners();
   reverse_corners();
+  full_d1_up();
+  full_d2_up();
+  full_corners();
+  reverse_full_corners();
   full_edges();
   clearscr();
 }  
