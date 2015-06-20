@@ -17,14 +17,14 @@ uint16_t animation::convert(const uint8_t& x, const uint8_t& y) {
   return (x*_d + y);
 }
 
-void animation::write(Adafruit_TLC5947& tlc, sound_color& c) {
+void animation::write(Adafruit_TLC5947& tlc, sound_color& c, const uint8_t time) {
   c.set();
   for(int8_t i = 0;i < _d;++i) {
     for(int8_t j = 0;j < _d;++j)
       _arr[i][j] ? tlc.setLED(convert(i, j), c._blue, c._red, c._green) : tlc.setLED(convert(i, j), 0, 0, 0);
   }
   tlc.write();	
-  delay(75);
+  delay(time);
 }
 
 void animation::reset() {
