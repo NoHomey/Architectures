@@ -17,13 +17,13 @@ uint16_t animation::convert(const uint8_t& x, const uint8_t& y) {
   return (x*_d + y);
 }
 
-void animation::write(Adafruit_TLC5947& tlc, const sound_color& c, const uint16_t time = 50) {
+void animation::write(Adafruit_TLC5947& tlc, const sound_color& c) {
   for(int8_t i = 0;i < _d;++i) {
     for(int8_t j = 0;j < _d;++j)
       _arr[i][j] ? tlc.setLED(convert(i, j), c._blue, c._red, c._green) : tlc.setLED(convert(i, j), 0, 0, 0);
   }
   tlc.write();	
-  delay(time);
+  delay(75);
 }
 
 void animation::reset() {
@@ -62,4 +62,23 @@ void animation::run_d2(const uint8_t& frame) {
     x -= 1;
     y -= 1;
   }
+}
+
+void animation::run_a(const uint8_t& frame, const bool& val) {
+  for(int8_t i = 0; i < _d;++i)
+    _arr[frame][i] = val;
+}
+
+void animation::run_b(const uint8_t& frame, const bool& val) {
+  for(int8_t i = 0; i < _d;++i)
+    _arr[i][frame] = val;
+}
+
+void animation::run_havycross(const uint8_t& frame, const bool& val) {
+  for(int8_t i = (_d / 2) - 1 - frame;i < (_d / 2) + frame;++i) {
+    for(int8_t j = 0;j < _d;++j) {
+      _arr[i][j] = 1;
+      _arr[j][i] = 1;
+    }
+  } 
 }

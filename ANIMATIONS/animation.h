@@ -12,6 +12,9 @@ class animation {
   void run_square(const uint8_t& frame);
   void run_d1(const uint8_t& frame);
   void run_d2(const uint8_t& frame);
+  void run_a(const uint8_t& frame, const bool& val);
+  void run_b(const uint8_t& frame, const bool& val);
+  void run_havycross(const uint8_t& frame, const bool& val);
   uint16_t convert(const uint8_t& x, const uint8_t& y);
  private:
   uint8_t _d;

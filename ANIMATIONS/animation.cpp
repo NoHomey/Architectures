@@ -63,3 +63,22 @@ void animation::run_d2(const uint8_t& frame) {
     y -= 1;
   }
 }
+
+void animation::run_a(const uint8_t& frame, const bool& val) {
+  for(int8_t i = 0; i < _d;++i)
+    _arr[frame][i] = val;
+}
+
+void animation::run_b(const uint8_t& frame, const bool& val) {
+  for(int8_t i = 0; i < _d;++i)
+    _arr[i][frame] = val;
+}
+
+void animation::run_havycross(const uint8_t& frame, const bool& val) {
+  for(int8_t i = (_d / 2) - 1 - frame;i < (_d / 2) + 1 + frame;++i) {
+    for(int8_t j = 0;j < _d;++j) {
+      _arr[i][j] = 1;
+      _arr[j][i] = 1;
+    }
+  } 
+}
