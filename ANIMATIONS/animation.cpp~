@@ -23,17 +23,7 @@ void animation::write(Adafruit_TLC5947& tlc, sound_color& c) {
       _arr[i][j] ? tlc.setLED(convert(i, j), c._blue, c._red, c._green) : tlc.setLED(convert(i, j), 0, 0, 0);
   }
   tlc.write();	
-}
-
-void animation::run_square(Adafruit_TLC5947& tlc, sound_color& c, const uint8_t& frame) {
-  reset();
-  for(uint8_t i = (_d / 2) - 1 - frame;i < (_d / 2) + 1 + frame;++i) {
-    _arr[i][(_d / 2) - 1 - frame] = 1;
-    _arr[i][(_d / 2) + frame] = 1;
-    _arr[(_d / 2) - 1 - frame][i] = 1;
-    _arr[(_d / 2) + frame][i] = 1;
-  }
-  write(tlc, c);
+  delay(70);
 }
 
 void animation::reset() {
@@ -43,18 +33,13 @@ void animation::reset() {
   }
 }
 
-
-void animation::run_full_square(Adafruit_TLC5947& tlc, sound_color& c, const uint8_t& frame) {
-  reset();
-  for(uint8_t j = 0; j < frame + 1;++j) {
-    for(uint8_t i = (_d / 2) - 1 - j;i < (_d / 2) + 1 + j;++i) {
-      _arr[i][(_d / 2) - 1 - j] = 1;
-      _arr[i][(_d / 2) + j] = 1;
-      _arr[(_d / 2) - 1 - j][i] = 1;
-      _arr[(_d / 2) + j][i] = 1;
-    }
+void animation::run_square(const uint8_t& frame) {
+  for(uint8_t i = (_d / 2) - 1 - frame;i < (_d / 2) + 1 + frame;++i) {
+    _arr[i][(_d / 2) - 1 - frame] = 1;
+    _arr[i][(_d / 2) + frame] = 1;
+    _arr[(_d / 2) - 1 - frame][i] = 1;
+    _arr[(_d / 2) + frame][i] = 1;
   }
-  write(tlc, c);
 }
 
 void animation::run_d1(const uint8_t& frame) {
@@ -78,6 +63,3 @@ void animation::run_d2(const uint8_t& frame) {
     y -= 1;
   }
 }
-
-
-

@@ -20,34 +20,45 @@ void loop() {
   square();
   full_d1_up();
   full_d2_up();
-  d1_up();
   d2_up();
-  reverse_corners();
-  corners();
+  d1_up();
   full_corners();
   reverse_full_corners();
+  corners();
+  reverse_corners();
   full_edges();
+  clearscr();
 }  
 
 void square() {
  for(int i = 0;i < 4;++i) {
+   a.reset();
    c.set();
-   a.run_square(tlc, c, i);
+   a.run_square(i);
+   a.write(tlc, c);
  }
  for(int i = 3;i > -1;--i) {
+   a.reset();
    c.set();
-   a.run_square(tlc, c, i);
+   a.run_square(i);
+   a.write(tlc, c);
  }
 }
 
 void full_square() {
  for(int i = 0;i < 4;++i) {
+   a.reset();
+   for(int j = 0;j < i + 1;++j)
+     a.run_square(j);
    c.set();
-   a.run_full_square(tlc, c, i);
+   a.write(tlc, c);
  }
  for(int i = 3;i > -1;--i) {
+   a.reset();
+   for(int j = 0;j < i + 1;++j)
+     a.run_square(j);
    c.set();
-   a.run_full_square(tlc, c, i);
+   a.write(tlc, c);
  }
 }
 
@@ -208,47 +219,28 @@ void reverse_corners() {
 }
 
 void full_edges() {
+ for(uint8_t i = 0;i < 7;++i) {
+   a.reset();
+   set_edges(i);
+   c.set();
+   a.write(tlc, c);
+ }
  a.reset();
- a.run_d1(14);
- a.run_d1(0);
- a.run_d2(0);
- a.run_d2(14);
- c.set();
- a.write(tlc, c);
- a.run_d1(13);
- a.run_d1(1);
- a.run_d2(1);
- a.run_d2(13);
- c.set();
- a.write(tlc, c);
- a.run_d1(12);
- a.run_d1(2);
- a.run_d2(2);
- a.run_d2(12);
- c.set();
- a.write(tlc, c);
- a.run_d1(11);
- a.run_d1(3);
- a.run_d2(3);
- a.run_d2(11);
- c.set();
- a.write(tlc, c);
- a.run_d1(10);
- a.run_d1(4);
- a.run_d2(4);
- a.run_d2(10);
- c.set();
- a.write(tlc, c);
- a.run_d1(9);
- a.run_d1(5);
- a.run_d2(5);
- a.run_d2(9);
- c.set();
- a.write(tlc, c);
- a.run_d1(8);
- a.run_d1(6);
- a.run_d2(6);
- a.run_d2(8);
- c.set();
- a.write(tlc, c);
+ for(uint8_t i = 0;i < 7;++i) {
+   set_edges(i);
+   c.set();
+   a.write(tlc, c);
+ }
+}
+
+void set_edges(uint8_t f) {
+ a.run_d1(14 - f);
+ a.run_d1(f);
+ a.run_d2(f);
+ a.run_d2(14 - f);
+}
+
+void clearscr() {
+  a.reset();
+  a.write(tlc, c); 
 }

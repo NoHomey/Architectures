@@ -7,6 +7,8 @@ class sound_color {
   sound_color(const uint8_t& f1, const uint8_t& f2, const uint8_t& f3, const uint8_t& f4);
   void set(void);
   void begin(void);
+ private:
+  friend class animation;
   uint16_t _blue;
   uint16_t _red;
   uint16_t _green;
