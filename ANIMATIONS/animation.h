@@ -8,7 +8,8 @@ class animation {
   animation(const uint8_t& d);
   ~animation(void);
   void reset();
-  void write(Adafruit_TLC5947& tlc, sound_color& c, const uint8_t time = 20);
+  void write(Adafruit_TLC5947& tlc, sound_color& c);
+  void write4(Adafruit_TLC5947& tlc, sound_color& c);
   void run_square(const uint8_t& frame);
   void run_d1(const uint8_t& frame);
   void run_d2(const uint8_t& frame);

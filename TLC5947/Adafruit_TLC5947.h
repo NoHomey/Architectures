@@ -7,7 +7,6 @@
 #define _CLOCK_TLC5947 PB1
 #define _LATCH_TLC5947 PB2
 #include <Arduino.h>
-
 class Adafruit_TLC5947 {
  public:
   Adafruit_TLC5947(const uint8_t& n);
@@ -19,5 +18,4 @@ class Adafruit_TLC5947 {
   uint16_t *pwmbuffer;
   uint8_t num;
 };
-
 #endif

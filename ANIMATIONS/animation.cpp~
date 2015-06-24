@@ -17,7 +17,7 @@ uint16_t animation::convert(const uint8_t& x, const uint8_t& y) {
   return (x*_d + y);
 }
 
-void animation::write(Adafruit_TLC5947& tlc, sound_color& c, const uint8_t time = 20) {
+void animation::write(Adafruit_TLC5947& tlc, sound_color& c, const uint8_t time) {
   c.set();
   for(int8_t i = 0;i < _d;++i) {
     for(int8_t j = 0;j < _d;++j)
