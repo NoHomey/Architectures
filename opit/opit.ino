@@ -9,9 +9,11 @@ animation a(8);
 
 void setup() {
   Serial.begin(9600);
+  digitalWrite(11, HIGH);
 }
 
 void loop() {
+  digitalWrite(11, LOW);
   square();
   edges();;
   cross();
