@@ -1,5 +1,5 @@
-# Architectures
-Repo for my Arduino project (Music reactive LEDs)
+# dino-sound-reactive-leds
+Repository for my Arduino project (Sound reactive LEDs) done as school homework for `Computer architectures` course in ***ELSYS (TUES) - Technological shcool "Electronic systems"***.
 
 #Intro
 Hardwear used in the project:
