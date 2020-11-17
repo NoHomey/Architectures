@@ -1,7 +1,7 @@
 # dino-sound-reactive-leds
-Repository for my Arduino project (Sound reactive LEDs) done as school homework for `Computer architectures` course in ***ELSYS (TUES) - Technological shcool "Electronic systems"***.
+Repository for an Arduino project (Sound reactive LEDs) done as school homework for **Computer architectures** course in ***ELSYS (TUES) - Technological shcool "Electronic systems"***.
 
-#Intro
+# Intro
 Hardwear used in the project:
   1x Arduino Uno R3;
   11x LEDs;
