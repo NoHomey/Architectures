@@ -3,10 +3,10 @@ Repository for an Arduino project (Sound reactive LEDs) done as school homework 
 
 # Intro
 Hardwear used in the project:
-  1x Arduino Uno R3;
-  11x LEDs;
-  1x BreadBoard;
-  Wires.
+- 1x Arduino Uno R3;
+- 11x LEDs;
+- 1x BreadBoard;
+- Wires.
   
 Software used in this project:
   is Under GPL v 3.0 License fee;
